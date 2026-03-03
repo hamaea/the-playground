@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ways of Arranging</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!--
+    WAYS OF ARRANGING — 25 <input> instances
+    ==========================================
+    Layout: bento grid
+    Center: era range slider (sets data-era on <body>)
+    Surrounding groups (5 types × 5 eras = 25 inputs):
+      1. COLOR   — type="color"       tints the whole page
+      2. VOLUME  — type="range"       controls ambient audio volume
+      3. TEXTURE — type="checkbox"    toggles texture/noise overlay
+      4. SPEED   — type="range"       controls animation / transition speed
+      5. FONT    — type="radio"       selects typeface family
+
+    Era progression:
+      1 → Web 1.0 / Early Internet   (~1994–1999)
+      2 → Web 2.0 / Glossy           (~2003–2007)
+      3 → Frutiger Aero / Vista era  (~2007–2012)
+      4 → Flat / Metro Design        (~2012–2017)
+      5 → Neumorphism / Glassmorphism (~2018–present)
+  -->
+
+  <main class="bento-grid" id="app">
+
+    <!-- ═══════════════════════════════════════════
+         CENTER — ERA SLIDER
+         spans the middle of the bento grid
+    ═══════════════════════════════════════════ -->
+    <section class="cell cell--era" id="era-cell">
+      <label class="cell__label" for="era-slider">Era</label>
+
+      <input
+        type="range"
+        id="era-slider"
+        class="input--era-slider"
+        min="1"
+        max="5"
+        step="1"
+        value="1"
+      />
+
+      <!-- tick labels below the slider -->
+      <div class="era-ticks" aria-hidden="true">
+        <span data-era="1">Web 1.0</span>
+        <span data-era="2">Web 2.0</span>
+        <span data-era="3">Frutiger Aero</span>
+        <span data-era="4">Flat Design</span>
+        <span data-era="5">Glassmorphism</span>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         GROUP 1 — COLOR TINT
+         5 × type="color" (one per era)
+    ═══════════════════════════════════════════ -->
+    <section class="cell cell--color" id="color-cell">
+      <h2 class="cell__label">Color Tint</h2>
+
+      <div class="input-instance" data-era="1">
+        <label for="color-era1">Web 1.0</label>
+        <input type="color" id="color-era1" class="input--color" value="#00ff00" />
+      </div>
+
+      <div class="input-instance" data-era="2">
+        <label for="color-era2">Web 2.0</label>
+        <input type="color" id="color-era2" class="input--color" value="#3399ff" />
+      </div>
+
+      <div class="input-instance" data-era="3">
+        <label for="color-era3">Frutiger Aero</label>
+        <input type="color" id="color-era3" class="input--color" value="#7ecfff" />
+      </div>
+
+      <div class="input-instance" data-era="4">
+        <label for="color-era4">Flat Design</label>
+        <input type="color" id="color-era4" class="input--color" value="#e74c3c" />
+      </div>
+
+      <div class="input-instance" data-era="5">
+        <label for="color-era5">Glassmorphism</label>
+        <input type="color" id="color-era5" class="input--color" value="#c084fc" />
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         GROUP 2 — VOLUME
+         5 × type="range" (one per era)
+    ═══════════════════════════════════════════ -->
+    <section class="cell cell--volume" id="volume-cell">
+      <h2 class="cell__label">Volume</h2>
+
+      <div class="input-instance" data-era="1">
+        <label for="volume-era1">Web 1.0</label>
+        <input type="range" id="volume-era1" class="input--volume" min="0" max="100" value="50" />
+      </div>
+
+      <div class="input-instance" data-era="2">
+        <label for="volume-era2">Web 2.0</label>
+        <input type="range" id="volume-era2" class="input--volume" min="0" max="100" value="50" />
+      </div>
+
+      <div class="input-instance" data-era="3">
+        <label for="volume-era3">Frutiger Aero</label>
+        <input type="range" id="volume-era3" class="input--volume" min="0" max="100" value="50" />
+      </div>
+
+      <div class="input-instance" data-era="4">
+        <label for="volume-era4">Flat Design</label>
+        <input type="range" id="volume-era4" class="input--volume" min="0" max="100" value="50" />
+      </div>
+
+      <div class="input-instance" data-era="5">
+        <label for="volume-era5">Glassmorphism</label>
+        <input type="range" id="volume-era5" class="input--volume" min="0" max="100" value="50" />
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         GROUP 3 — TEXTURE OVERLAY
+         5 × type="checkbox" (one per era)
+    ═══════════════════════════════════════════ -->
+    <section class="cell cell--texture" id="texture-cell">
+      <h2 class="cell__label">Texture</h2>
+
+      <div class="input-instance" data-era="1">
+        <label for="texture-era1">Web 1.0</label>
+        <input type="checkbox" id="texture-era1" class="input--texture" />
+      </div>
+
+      <div class="input-instance" data-era="2">
+        <label for="texture-era2">Web 2.0</label>
+        <input type="checkbox" id="texture-era2" class="input--texture" />
+      </div>
+
+      <div class="input-instance" data-era="3">
+        <label for="texture-era3">Frutiger Aero</label>
+        <input type="checkbox" id="texture-era3" class="input--texture" />
+      </div>
+
+      <div class="input-instance" data-era="4">
+        <label for="texture-era4">Flat Design</label>
+        <input type="checkbox" id="texture-era4" class="input--texture" />
+      </div>
+
+      <div class="input-instance" data-era="5">
+        <label for="texture-era5">Glassmorphism</label>
+        <input type="checkbox" id="texture-era5" class="input--texture" />
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         GROUP 4 — ANIMATION SPEED
+         5 × type="range" (one per era)
+    ═══════════════════════════════════════════ -->
+    <section class="cell cell--speed" id="speed-cell">
+      <h2 class="cell__label">Anim Speed</h2>
+
+      <div class="input-instance" data-era="1">
+        <label for="speed-era1">Web 1.0</label>
+        <input type="range" id="speed-era1" class="input--speed" min="0" max="100" value="50" />
+      </div>
+
+      <div class="input-instance" data-era="2">
+        <label for="speed-era2">Web 2.0</label>
+        <input type="range" id="speed-era2" class="input--speed" min="0" max="100" value="50" />
+      </div>
+
+      <div class="input-instance" data-era="3">
+        <label for="speed-era3">Frutiger Aero</label>
+        <input type="range" id="speed-era3" class="input--speed" min="0" max="100" value="50" />
+      </div>
+
+      <div class="input-instance" data-era="4">
+        <label for="speed-era4">Flat Design</label>
+        <input type="range" id="speed-era4" class="input--speed" min="0" max="100" value="50" />
+      </div>
+
+      <div class="input-instance" data-era="5">
+        <label for="speed-era5">Glassmorphism</label>
+        <input type="range" id="speed-era5" class="input--speed" min="0" max="100" value="50" />
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         GROUP 5 — FONT SELECTOR
+         5 × type="radio" (one per era)
+         all share name="font-selector" so only one is active
+    ═══════════════════════════════════════════ -->
+    <section class="cell cell--font" id="font-cell">
+      <h2 class="cell__label">Font</h2>
+
+      <div class="input-instance" data-era="1">
+        <label for="font-era1">Web 1.0 — Times New Roman</label>
+        <input type="radio" id="font-era1" class="input--font" name="font-selector" value="times-new-roman" />
+      </div>
+
+      <div class="input-instance" data-era="2">
+        <label for="font-era2">Web 2.0 — Trebuchet MS</label>
+        <input type="radio" id="font-era2" class="input--font" name="font-selector" value="trebuchet-ms" />
+      </div>
+
+      <div class="input-instance" data-era="3">
+        <label for="font-era3">Frutiger Aero — Myriad Pro</label>
+        <input type="radio" id="font-era3" class="input--font" name="font-selector" value="myriad-pro" checked />
+      </div>
+
+      <div class="input-instance" data-era="4">
+        <label for="font-era4">Flat — Helvetica Neue</label>
+        <input type="radio" id="font-era4" class="input--font" name="font-selector" value="helvetica-neue" />
+      </div>
+
+      <div class="input-instance" data-era="5">
+        <label for="font-era5">Glassmorphism — SF Pro</label>
+        <input type="radio" id="font-era5" class="input--font" name="font-selector" value="sf-pro" />
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- hidden audio element for ambient sound -->
+  <audio id="ambient-audio" loop></audio>
+
+
+  <script>
+    // ─────────────────────────────────────────────
+    // ERA SLIDER → sets data-era attribute on <body>
+    // Your CSS can then use body[data-era="3"] { ... }
+    // to swap in era-specific styles for each input
+    // ─────────────────────────────────────────────
+    const eraSlider  = document.getElementById('era-slider');
+    const audio      = document.getElementById('ambient-audio');
+
+    // ambient sound files — drop your audio files into an /audio folder
+    // and rename to match these keys, or swap in your own paths
+    const eraSounds = {
+      1: 'audio/web1.mp3',
+      2: 'audio/web2.mp3',
+      3: 'audio/aero.mp3',
+      4: 'audio/flat.mp3',
+      5: 'audio/glass.mp3',
+    };
+
+    function applyEra(era) {
+      document.body.dataset.era = era;
+
+      // swap ambient sound
+      const src = eraSounds[era];
+      if (audio.src !== location.origin + '/' + src) {
+        audio.src = src;
+        audio.play().catch(() => {}); // browsers may block autoplay; that's fine
+      }
+
+      // highlight the matching tick label
+      document.querySelectorAll('.era-ticks span').forEach(el => {
+        el.classList.toggle('active', el.dataset.era == era);
+      });
+    }
+
+    eraSlider.addEventListener('input', e => applyEra(e.target.value));
+    applyEra(eraSlider.value); // run on load
+
+
+    // ─────────────────────────────────────────────
+    // COLOR inputs → apply tint via CSS custom property
+    // ─────────────────────────────────────────────
+    document.querySelectorAll('.input--color').forEach(input => {
+      input.addEventListener('input', e => {
+        document.documentElement.style.setProperty('--tint-color', e.target.value);
+      });
+    });
+
+
+    // ─────────────────────────────────────────────
+    // VOLUME inputs → control audio element
+    // ─────────────────────────────────────────────
+    document.querySelectorAll('.input--volume').forEach(input => {
+      input.addEventListener('input', e => {
+        audio.volume = e.target.value / 100;
+      });
+    });
+
+
+    // ─────────────────────────────────────────────
+    // TEXTURE checkboxes → toggle class on body
+    // ─────────────────────────────────────────────
+    document.querySelectorAll('.input--texture').forEach(input => {
+      input.addEventListener('change', e => {
+        document.body.classList.toggle('texture-on', e.target.checked);
+      });
+    });
+
+
+    // ─────────────────────────────────────────────
+    // SPEED sliders → set CSS custom property
+    // ─────────────────────────────────────────────
+    document.querySelectorAll('.input--speed').forEach(input => {
+      input.addEventListener('input', e => {
+        // maps 0–100 → 2s–0.1s transition duration
+        const duration = 2 - (e.target.value / 100) * 1.9;
+        document.documentElement.style.setProperty('--anim-speed', duration + 's');
+      });
+    });
+
+
+    // ─────────────────────────────────────────────
+    // FONT radios → set CSS custom property
+    // ─────────────────────────────────────────────
+    document.querySelectorAll('.input--font').forEach(input => {
+      input.addEventListener('change', e => {
+        document.documentElement.style.setProperty('--font-family', e.target.value);
+      });
+    });
+  </script>
+
+</body>
+</html>
